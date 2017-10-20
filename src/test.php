@@ -1,85 +1,94 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en" class="no-js">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
-<title>今日天气</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>天气预报</title>
+
+<link rel="stylesheet" type="text/css" href="wether/normalize.css" />
+<link rel="stylesheet" type="text/css" href="wether/demo.css" />
+<link rel="stylesheet" type="text/css" href="wether/style1.css" />
+
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+</head>
+
+<body class="demo-1">
+
+    <div class="image-preload">
+        <img src="weather/drop-color.png" alt="">
+        <img src="weather/drop-alpha.png" alt="">
+        <img src="weather/texture-rain-fg.png" />
+        <img src="weather/texture-rain-bg.png" />
+        <img src="weather/texture-sun-fg.png" />
+        <img src="weather/texture-sun-bg.png" />
+        <img src="weather/texture-fallout-fg.png" />
+        <img src="weather/texture-fallout-bg.png" />
+        <img src="weather/texture-drizzle-fg.png" />
+        <img src="weather/texture-drizzle-bg.png" />
+    </div>
+    
+    <div class="container">
+        <header class="codrops-header">
+            <h1>天气预报</h1>
+        </header>
+        <div class="slideshow">
+            <canvas width="1" height="1" id="container" style="position:absolute"></canvas>
+            
+            
+                <div class="slide" id="day-1" data-weather="sunny">
+                    <div class="slide__element slide__element--date">2017-10-21&nbsp;&nbsp;&nbsp;星期六</div>
+                    <div class="slide__element slide__element--temp">20°<small>C</small></div>
+                </div>
+                <div class="slide" id="day-2" data-weather="sunny">
+                    <div class="slide__element slide__element--date">2017-10-22&nbsp;&nbsp;&nbsp;星期日</div>
+                    <div class="slide__element slide__element--temp">19°<small>C</small></div>
+                </div>
+                <div class="slide" id="day-3" data-weather="sunny">
+                    <div class="slide__element slide__element--date">2017-10-23&nbsp;&nbsp;&nbsp;星期一</div>
+                    <div class="slide__element slide__element--temp">18°<small>C</small></div>
+                </div>
+                <div class="slide" id="day-4" data-weather="sunny">
+                    <div class="slide__element slide__element--date">2017-10-24&nbsp;&nbsp;&nbsp;星期二</div>
+                    <div class="slide__element slide__element--temp">17°<small>C</small></div>
+                </div>
+                <div class="slide" id="day-5" data-weather="sunny">
+                    <div class="slide__element slide__element--date">2017-10-25&nbsp;&nbsp;&nbsp;星期三</div>
+                    <div class="slide__element slide__element--temp">18°<small>C</small></div>
+                </div>			
+            <nav class="slideshow__nav">
+                
+                        <a class="nav-item" href="#day-1">
+                            <i class="icon icon--sunny"></i>
+                            <span>10/21</span>
+                        </a>
+                        <a class="nav-item" href="#day-2">
+                            <i class="icon icon--sunny"></i>
+                            <span>10/22</span>
+                        </a>
+                        <a class="nav-item" href="#day-3">
+                            <i class="icon icon--sunny"></i>
+                            <span>10/23</span>
+                        </a>
+                        <a class="nav-item" href="#day-4">
+                            <i class="icon icon--sunny"></i>
+                            <span>10/24</span>
+                        </a>
+                        <a class="nav-item" href="#day-5">
+                            <i class="icon icon--sunny"></i>
+                            <span>10/25</span>
+                        </a>            
+            </nav>
+        </div>
+        
+        <p class="nosupport">对不起，您的浏览器不支持WebGL！</p>
+    </div>
+    <!-- /container -->
+    <script src="wether/index.min.js"></script>
 
 
-<style>  
-body {  
-    font-family: microsoft yahei;  
-}  
-</style>  
-<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>  
-</head>  
-<body>  
-  
-<div id="output"></div>  
-  
-<script type="text/javascript" charset="utf-8">  
-      
-    $.ajax({  
-        type: "GET",   
-        url: "http://cdn.weather.hao.360.cn/sed_api_weather_info.php?app=360chrome",  
-        dataType : "jsonp",  
-        jsonp: "_jsonp",//参数名  
-        success: function(jsonData){  
-            var html;  
-            html = '数据更新时间：' + jsonData.pubdate + ' ' + jsonData.pubtime + '<br>';  
-              
-            html += '地区：' + jsonData.area[0][0] + ' ' + jsonData.area[1][0] + ' ' + jsonData.area[2][0] + '<br>';  
-            html += '天气情况：<br>';  
-              
-            for(var i =0; i<jsonData.weather.length; i++) {  
-                html += jsonData.weather[i].date + '<br>';  
-                  
-                if(jsonData.weather[i].info.dawn !== undefined) {  
-                    html += '早晨天气：' + jsonData.weather[i].info.dawn[1] +   
-                    ' 气温：' + jsonData.weather[i].info.dawn[0] + '~' + jsonData.weather[i].info.dawn[2] + '℃ ' +  
-                    jsonData.weather[i].info.dawn[3] +' '+ jsonData.weather[i].info.dawn[4] + '<br>';  
-                }  
-                  
-                if(jsonData.weather[i].info.day !== undefined) {  
-                    html += '白天天气：' + jsonData.weather[i].info.day[1] +   
-                    ' 气温：' + jsonData.weather[i].info.day[0] + '~' + jsonData.weather[i].info.day[2] + '℃ ' +  
-                    jsonData.weather[i].info.day[3] +' '+ jsonData.weather[i].info.day[4] + '<br>';  
-                }  
-                  
-                if(jsonData.weather[i].info.night !== undefined) {  
-                    html += '夜间天气：' + jsonData.weather[i].info.night[1] +   
-                    ' 气温：' + jsonData.weather[i].info.night[0] + '~' + jsonData.weather[i].info.night[2] + '℃ ' +  
-                    jsonData.weather[i].info.night[3] +' '+ jsonData.weather[i].info.night[4] + '<br>';  
-                }  
-                html += '<br>';  
-            }  
-              
-            html += '穿衣：<br>';  
-            html += '【' + jsonData.life.info.chuanyi[0] + '】 ' + jsonData.life.info.chuanyi[1] + '<br><br>';  
-              
-            html += '感冒：<br>';  
-            html += '【' + jsonData.life.info.ganmao[0] + '】 ' + jsonData.life.info.ganmao[1] + '<br><br>';  
-              
-            html += '空调：<br>';  
-            html += '【' + jsonData.life.info.kongtiao[0] + '】 ' + jsonData.life.info.kongtiao[1] + '<br><br>';  
-              
-            html += '污染：<br>';  
-            html += '【' + jsonData.life.info.wuran[0] + '】 ' + jsonData.life.info.wuran[1] + '<br><br>';  
-              
-            html += '洗车：<br>';  
-            html += '【' + jsonData.life.info.xiche[0] + '】 ' + jsonData.life.info.xiche[1] + '<br><br>';  
-              
-            html += '运动：<br>';  
-            html += '【' + jsonData.life.info.yundong[0] + '】 ' + jsonData.life.info.yundong[1] + '<br><br>';  
-              
-            html += '紫外线：<br>';  
-            html += '【' + jsonData.life.info.ziwaixian[0] + '】 ' + jsonData.life.info.ziwaixian[1] + '<br><br>';  
-              
-            html += 'PM2.5： ' + jsonData.pm25.pm25[0];  
-              
-            $("#output").html(html);  
-        }  
-    });  
-</script>  
-  
-</body>  
-</html>  
+</body>
+</html>
