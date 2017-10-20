@@ -1,3 +1,4 @@
+
 /**************************************************
  * MKOnlinePlayer v2.3
  * 播放器主功能模块
@@ -6,7 +7,8 @@
  *************************************************/
 // 播放器功能配置
 var mkPlayer = {
-    api: "http://122.112.253.137/music/api.php", // api地址
+    //api: "http://122.112.253.137/music/api.php", // api地址
+api: "api.php", // api地址
     loadcount: 20,  // 搜索结果一次加载多少条
     method: "POST",     // 数据传输方式(POST/GET)
     defaultlist: 3,    // 默认要显示的播放列表编号
