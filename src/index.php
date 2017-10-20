@@ -1,11 +1,5 @@
 <!--********************************
  * 电脑壁纸网站
- * 孟坤网页实验室（http://lab.mkblog.cn）出品
- * ver 1.1
- * !!盗版必究!!
- * 本壁纸站壁纸来自 360壁纸库、必应首页的每日图片以及金山词霸开放平台
- * 原理见 http://mkblog.cn/581/  和  http://mkblog.cn/492/
- * 本站前端界面及交互代码由孟坤网页实验室开发，未经允许，不得任何形式的抄袭。
  * 更新日志：
  * 2017-2-9 ver1.1
  *  新增 每日英语，展示金山词霸每日英语图片及英文句子（感谢 @266277）
@@ -25,7 +19,7 @@
     <title>电脑壁纸</title>
 
     <meta name="keywords" content="电脑桌面壁纸,高清电脑桌面壁纸,电脑桌面壁纸下载,电脑高清桌面壁纸" />
-    <meta name="description" content="孟坤在线壁纸提供高清电脑壁纸下载,包括美女,游戏,动漫,动物,汽车,体育,广告,影视,明星,风景,绘画,节日,花卉等经典壁纸"/>
+    <meta name="description" content="高清电脑壁纸下载,包括美女,游戏,动漫,动物,汽车,体育,广告,影视,明星,风景,绘画,节日,花卉等经典壁纸"/>
 
     <!-- jQuery文件 -->
     <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
@@ -51,12 +45,12 @@
             分类壁纸
             <ul id="tags"></ul>
         </li>
-        <li onclick="loadData('bing', true);changeTitle(this)">必应美图</li>
+        
         <li onclick="loadData('ciba', true);changeTitle(this)" title="金山词霸每日一句壁纸">每日英语</li>
-        <li><a href="/player/index.html" target="_blank">音乐播放</a></li>
+        <li><a href="/Player/index.html" target="_blank">音乐播放</a></li>
         <li><a href="/EditPlus/index.html" target="_blank">sn计算</a></li>
-        <li><a href="wether.html" target="_blank">最近天气</a></li>
-        <li><a href="test.php" target="_blank">test</a></li>
+        <li><a href="test.php" target="_blank">最近天气</a></li>
+        
     </ul>
 </div>
 
