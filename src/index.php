@@ -49,7 +49,7 @@
         <li onclick="loadData('ciba', true);changeTitle(this)" title="金山词霸每日一句壁纸">每日英语</li>
         <li><a href="/Player/index.html" target="_blank">音乐播放</a></li>
         <li><a href="/EditPlus/index.html" target="_blank">sn计算</a></li>
-        <li><a href="test.php" target="_blank">最近天气</a></li>
+        <li><a href="wether.php" target="_blank">最近天气</a></li>
         
     </ul>
 </div>
